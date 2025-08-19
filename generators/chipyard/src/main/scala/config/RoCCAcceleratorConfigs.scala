@@ -71,3 +71,12 @@ class ZstdCompressorRocketConfig extends Config(
   new compressacc.WithZstdCompressor ++
   new freechips.rocketchip.rocket.WithNHugeCores(1) ++
   new chipyard.config.AbstractConfig)
+
+class PartitionFixedConfig
+    extends Config(
+      new freechips.rocketchip.subsystem.WithoutTLMonitors ++
+        new partition.fixedacc.WithPartitionFixedAccel ++
+        new freechips.rocketchip.rocket.WithNHugeCores(1) ++
+        new chipyard.config.WithSystemBusWidth(256) ++
+        new chipyard.config.AbstractConfig
+     )

@@ -158,7 +158,8 @@ lazy val chipyard = (project in file("generators/chipyard"))
     dsptools, rocket_dsp_utils,
     radiance, gemmini, icenet, tracegen, cva6, nvdla, sodor, ibex, fft_generator,
     constellation, mempress, barf, shuttle, caliptra_aes, rerocc,
-    compressacc, saturn, ara, firrtl2_bridge, vexiiriscv, tacit)
+    compressacc, saturn, ara, firrtl2_bridge, vexiiriscv, tacit,
+    partition)
   .settings(libraryDependencies ++= rocketLibDeps.value)
   .settings(
     libraryDependencies ++= Seq(
@@ -167,6 +168,12 @@ lazy val chipyard = (project in file("generators/chipyard"))
   )
   .settings(commonSettings)
   .settings(Compile / unmanagedSourceDirectories += file("tools/stage/src/main/scala"))
+
+
+lazy val partition = (project in file("generators/partition-chisel"))
+  .dependsOn(rocketchip, rocc_acc_utils, testchipip)
+  .settings(libraryDependencies ++= rocketLibDeps.value)
+  .settings(commonSettings)
 
 lazy val compressacc = (project in file("generators/compress-acc"))
   .dependsOn(rocketchip)

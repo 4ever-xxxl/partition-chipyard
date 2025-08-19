@@ -1,3 +1,7 @@
+[submodule "generators/partition-chisel"]
+	path = generators/partition-chisel
+	url = https://github.com/4ever-xxxl/partition-chisel.git
+	branch = chipyard
 [submodule "fpga/fpga-shells"]
 	path = fpga/fpga-shells
 	url = https://github.com/chipsalliance/rocket-chip-fpga-shells.git
