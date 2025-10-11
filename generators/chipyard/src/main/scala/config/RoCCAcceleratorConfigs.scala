@@ -80,3 +80,12 @@ class PartitionFixedConfig
         new chipyard.config.WithSystemBusWidth(256) ++
         new chipyard.config.AbstractConfig
      )
+
+class PartitionVariableConfig
+    extends Config(
+      new freechips.rocketchip.subsystem.WithoutTLMonitors ++
+        new partition.variableacc.WithVariablePartitionAccel ++
+        new freechips.rocketchip.rocket.WithNHugeCores(1) ++
+        new chipyard.config.WithSystemBusWidth(256) ++
+        new chipyard.config.AbstractConfig
+     )
